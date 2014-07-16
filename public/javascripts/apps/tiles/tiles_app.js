@@ -15,7 +15,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
                 if (!_.isUndefined(id) && !_.isNull(id)) {
                     if (id < 9) {
-                        console.log(category + ":" + id);
+
                         TilesManager.navigate("t/" + category + "/" + id);
                         TilesApp.Controller.showView(category, id);
                     } else {
@@ -45,7 +45,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
     });
 
     TilesManager.on("tiles:action", function(category, id) {
-        console.log(category + ":" + id)
+
         API.showView(category, id);
     });
 

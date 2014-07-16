@@ -45,8 +45,9 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                 }
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
-
+                    TilesManager.mainRegion.close();
                     frame.$el.addClass('animated bounceOut');
+
                     frame.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $(this).removeClass('animated bounceOut');
 
@@ -62,6 +63,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
                             TilesManager.trigger("tiles:action", model.id);
                         }
+
                     });
                 });
                 region.show(frame);
@@ -70,12 +72,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
         showPlaceholder: function() {
             return  new TilesApp.Undefined();
-        },
-        returnToPrevious: function(tile) {
-            if(!_.isUndefined(TilesManager.TilesApp.currentCategory)) {
-                this.showView();
-            }
-
         }
     }
 });

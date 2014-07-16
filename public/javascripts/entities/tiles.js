@@ -3,14 +3,12 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
         urlRoot: "tiles"
     });
 
-    Entities.configureStorage(Entities.Tile);
 
     Entities.TileCollection = Backbone.Collection.extend({
         url: "tiles",
         model: Entities.Tile,
         comparator: "id"
     });
-    Entities.configureStorage(Entities.TileCollection);
 
     var initializeTiles = function(){
         var tiles = new Entities.TileCollection([
@@ -223,12 +221,12 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 }
             });
             var promise = defer.promise();
-            $.when(promise).done(function(tiles){
-                if(tiles.length === 0) {
-                    var models = initializeTiles();
-                    tiles.reset(models);
-                }
-            });
+//            $.when(promise).done(function(tiles){
+//                if(tiles.length === 0) {
+//                    var models = initializeTiles();
+//                    tiles.reset(models);
+//                }
+//            });
             return promise;
         },
 
