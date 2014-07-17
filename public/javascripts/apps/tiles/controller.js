@@ -45,12 +45,12 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                 }
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
-                    TilesManager.mainRegion.close();
-                    frame.$el.addClass('animated bounceOut');
 
+                    frame.$el.addClass('animated bounceOut');
+                    
                     frame.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $(this).removeClass('animated bounceOut');
-
+                        TilesManager.mainRegion.close();
                         if(!_.isUndefined(TilesManager.TilesApp.currentCategory)){
 
                             TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentCategory, model.id);

@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-    res.send({ data:[
+    res.send([
         {
             id: 0,
             transitions: [
@@ -196,7 +196,7 @@ router.get('/', function(req, res) {
         {
             id: 11
         }
-    ]});
+    ]);
     res.end();
 });
 
